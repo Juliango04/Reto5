@@ -12,34 +12,25 @@ public class ConsultasCRUD {
     public static void main(String[] args) {
         
         String dbURL = "jdbc:mysql://localhost:3306/reto5";
-        String username = "root";//Editar con el usuario que tiene cada para workbench
-        String password = "xw5H4a3^";//Editar con la clave que tiene cada para workbench
+        String username = "root";
+        String password = "xw5H4a3^";
         // conectar
         try {
             Connection conn = DriverManager.getConnection ( dbURL , username , password );
-            if ( conn != null ) {
-                System.out.println ("\n Conexión exitosa\n");
-            }
+            System.out.println ("\n Conexión exitosa\n");
+            String sql = "SELECT * FROM clientes";
+            Statement statement = conn.createStatement ();
+            ResultSet result = statement.executeQuery ( sql );
+         while ( result.next() ){
+            String alias = result.getString(1);
+            String nombre = result.getString(2);
+           //String apellidos = result.getString(3);
+           //String email = result.getString(4);
+            System.out.println("Alias: "+alias+"\tNombre: "+nombre);
+        }
+ 
         } catch (SQLException ex) {
     }
-
-// Operación R, Read, Retrieve, Leer, Consultar ---------------------------------------
-       String sql = "SELECT * FROM motocicletas";
-       ResultSet result = statement.executeQuery (sql);
-        try {
-            
-            while ( result.next() ){
-                String titulo = result.getString(2);
-                int pub = result.getInt(3);
-                Double costo = result.getDouble(6);
-                System.out.println("id: " +titulo+ "\tFabricante: " +pub+ "\tprecio: " +costo );
-            }       } catch (SQLException ex) {
-            Logger.getLogger(ConsultasCRUD.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (SQLException ex) {
-    }
-
-
     }
 }
-    
-    
+  
