@@ -12,8 +12,8 @@ public class ConsultasCRUD {
     public static void main(String[] args) {
         
         String dbURL = "jdbc:mysql://localhost:3306/reto5";
-        String username = "root";
-        String password = "xw5H4a3^";
+        String username = "root";//Editar con el usuario que tiene cada para workbench
+        String password = "xw5H4a3^";//Editar con la clave que tiene cada para workbench
         // conectar
         try {
             Connection conn = DriverManager.getConnection ( dbURL , username , password );
