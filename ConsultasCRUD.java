@@ -57,14 +57,14 @@ public class ConsultasCRUD {
                                         System.out.println("I.D.: "+id+"\tAlias: "+alias+"\tFabricante: "+fabricante+"\tEmail: "+fecha_hora);
                                             }
                           }catch (SQLException ex) {
-                            System.out.println("Error de Conexion");
+                            System.out.println("EXCEPCION SQL: "+ex);
                             }
                 }
          
         case 2 ->{
                      //Operación C, Create, Crear ---------------------------------------------------------- 
                 try{
-                    
+                    // Ejecutar este script en workbench para llaves foraneas SET GLOBAL FOREIGN_KEY_CHECKS=0
                     Connection conn = DriverManager.getConnection ( dbURL , username , password );
                     System.out.println ("\n\033[0;31m\033[43m OPERACION CREACION: \n");
                     String sql = "INSERT INTO compras (id, alias, fabricante, fecha_hora) VALUES (?, ?, ?, ?)";
@@ -72,14 +72,14 @@ public class ConsultasCRUD {
                     //Genero las inserciones en la posición y el valor (Columna, Valor)
                     ps.setInt (1 , 118);
                     ps.setString (2 , "ouken");
-                    ps.setString (3 , "Starker");
+                    ps.setString (3 , "starker");
                     ps.setString (4 , "2022-08-4 20:45:00");
                     int rows = ps.executeUpdate();
                     if ( rows > 0) {
                             System.out.println("¡Inserción exitosa!");
                     }
                     } catch (SQLException ex) {
-                    System.out.println("\tERROR DE CONEXIÓN");
+                    System.out.println("EXCEPCION SQL: "+ex);
                     } 
                 }
            
@@ -89,14 +89,15 @@ public class ConsultasCRUD {
                     //Operación U, Update, Update------------------------------------------ ----------------
                     Connection conn = DriverManager.getConnection ( dbURL , username , password );
                     System.out.println ("\n\033[0;31m\033[43m OPERACION ACTUALIZACIÓN: \n");
-                    String sql= "UPDATE `reto5`.`compras` SET id=?, alias = ?, fabricante = ?, fecha_hora = ? WHERE (`id` = ?)";
-                    PreparedStatement statement = conn . prepareStatement (sql);
+                    String sql= "UPDATE compras SET alias =?  WHERE id =?";
+                    PreparedStatement ps = conn . prepareStatement (sql);
                     //Genera la actualización en la posición y el valor (Columna, Valor)
-                    statement.setInt (1 , 103);
-                    statement.setString (2 , "djampi");
-                    statement.setString (3 , "starker");
-                    statement.setString (4 , "2022-08-4 20:45:00");
-                    int rowsUpdated=statement.executeUpdate();
+                    ps.setInt (1 , 118);
+                    ps.setString (2 , "djampi");
+//                    ps.setString (4 , "2022-08-4 20:45:00");
+//                    ps.setString (3 , "starker");
+                                  
+                    int rowsUpdated=ps.executeUpdate();
 
                     if ( rowsUpdated>0){
 
@@ -104,7 +105,7 @@ public class ConsultasCRUD {
 
                         } 
                 }catch( SQLException ex) {
-                    System.out.println("\tERROR DE CONEXIÓN");
+                    System.out.println("EXCEPCION SQL: "+ex);
                     }
             
             }
@@ -122,7 +123,7 @@ public class ConsultasCRUD {
                          System.out.println("¡Borrado exitoso!");
                     }
                 }catch(SQLException ex){
-                System.out.println("\tERROR DE CONEXIÓN");
+                System.out.println("EXCEPCION SQL: "+ex);
                 }
             }
   
