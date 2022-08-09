@@ -4,6 +4,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
+//Presentado por: Monica Calderon CC: ? Milton Esguerra Suárez CC: 79842545 Oscar Julian Gonzalez Pachon CC: 1019060929;  
+
+
 
 public class ConsultasCRUD {
     public static void main(String[] args) {
