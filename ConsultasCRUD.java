@@ -64,7 +64,7 @@ public class ConsultasCRUD {
         case 2 ->{
                      //Operación C, Create, Crear ---------------------------------------------------------- 
                 try{
-                    // Ejecutar este script en workbench para llaves foraneas SET GLOBAL FOREIGN_KEY_CHECKS=0
+                    // Ejecutar este script en workbench para llaves foraneas SET GLOBAL FOREIGN_KEY_CHECKS=0	
                     Connection conn = DriverManager.getConnection ( dbURL , username , password );
                     System.out.println ("\n\033[0;31m\033[43m OPERACION CREACION: \n");
                     String sql = "INSERT INTO compras (id, alias, fabricante, fecha_hora) VALUES (?, ?, ?, ?)";
@@ -74,12 +74,12 @@ public class ConsultasCRUD {
                     ps.setString (2 , "ouken");
                     ps.setString (3 , "starker");
                     ps.setString (4 , "2022-08-4 20:45:00");
-                    int rows = ps.executeUpdate();
-                    if ( rows > 0) {
-                            System.out.println("¡Inserción exitosa!");
-                    }
-                    } catch (SQLException ex) {
-                    System.out.println("EXCEPCION SQL: "+ex);
+                            int rows = ps.executeUpdate();
+                            if ( rows > 0) {
+                                    System.out.println("¡Inserción exitosa!");
+                            }
+                            } catch (SQLException ex) {
+                            System.out.println("EXCEPCION SQL: "+ex);
                     } 
                 }
            
@@ -89,19 +89,17 @@ public class ConsultasCRUD {
                     //Operación U, Update, Update------------------------------------------ ----------------
                     Connection conn = DriverManager.getConnection ( dbURL , username , password );
                     System.out.println ("\n\033[0;31m\033[43m OPERACION ACTUALIZACIÓN: \n");
-                    String sql= "UPDATE compras SET alias =?  WHERE id =?";
+                    String sql= "UPDATE compras SET alias =?, fabricante=?, fecha_hora=?  WHERE id =?";
                     PreparedStatement ps = conn . prepareStatement (sql);
                     //Genera la actualización en la posición y el valor (Columna, Valor)
-                    ps.setInt (1 , 118);
-                    ps.setString (2 , "djampi");
-//                    ps.setString (4 , "2022-08-4 20:45:00");
-//                    ps.setString (3 , "starker");
-                                  
-                    int rowsUpdated=ps.executeUpdate();
-
-                    if ( rowsUpdated>0){
-
-                    System.out.println("El registro fue " +" actualizado exitosamente!");
+                    ps.setString (1 , "Starlight" );
+                    ps.setString (2 , "starker");
+                    ps.setString (3 , "2022-08-4 20:45:00");
+                    ps.setInt (4 , 118);
+                                         
+                        int rowsUpdated=ps.executeUpdate();
+                        if ( rowsUpdated>0){
+                        System.out.println("El registro fue " +" actualizado exitosamente!");
 
                         } 
                 }catch( SQLException ex) {
