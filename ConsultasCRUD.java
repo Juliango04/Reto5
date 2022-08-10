@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
-//Presentado por: Monica Calderon CC: ? Milton Esguerra Suárez CC: 79842545 Oscar Julian Gonzalez Pachon CC: 1019060929;  
+//Presentado por: Monica Lizette Calderon Urrego  CC: 1072072801  Milton Esguerra Suárez CC: 79842545 Oscar Julian Gonzalez Pachon CC: 1019060929;  
 
 
 
