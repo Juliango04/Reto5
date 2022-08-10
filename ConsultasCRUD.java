@@ -57,7 +57,7 @@ public class ConsultasCRUD {
                                         String fabricante = result.getString(3);
                                         String fecha_hora = result.getString(4);
                                         
-                                        System.out.println("I.D.: "+id+"\tAlias: "+alias+"\tFabricante: "+fabricante+"\tEmail: "+fecha_hora);
+                                        System.out.println("I.D.: "+id+"\tAlias: "+alias+"\tFabricante: "+fabricante+"\tFecha y hora: "+fecha_hora);
                                             }
                           }catch (SQLException ex) {
                             System.out.println("EXCEPCION SQL: "+ex);
