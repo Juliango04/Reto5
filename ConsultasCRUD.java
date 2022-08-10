@@ -90,6 +90,7 @@ public class ConsultasCRUD {
          
                 try{
                     //Operación U, Update, Update------------------------------------------ ----------------
+                    // Ejecutar este script en workbench para llaves foraneas SET GLOBAL FOREIGN_KEY_CHECKS=0
                     Connection conn = DriverManager.getConnection ( dbURL , username , password );
                     System.out.println ("\n\033[0;31m\033[43m OPERACION ACTUALIZACIÓN: \n");
                     String sql= "UPDATE compras SET alias =?, fabricante=?, fecha_hora=?  WHERE id =?";
@@ -102,7 +103,7 @@ public class ConsultasCRUD {
                                          
                         int rowsUpdated=ps.executeUpdate();
                         if ( rowsUpdated>0){
-                        System.out.println("El registro fue " +" actualizado exitosamente!");
+                        System.out.println("El registro fue: 118 " +" actualizado exitosamente!");
 
                         } 
                 }catch( SQLException ex) {
